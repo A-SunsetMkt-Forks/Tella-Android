@@ -347,7 +347,7 @@ class PhotoViewerActivity : BaseLockActivity(),
                         getString(R.string.action_cancel),
                         object : ActionConfirmed {
                             override fun accept(isConfirmed: Boolean) {
-
+                                exportMediaFileWithPermissionCheck()
                             }
                         }
                     )
