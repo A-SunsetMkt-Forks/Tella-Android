@@ -87,7 +87,7 @@ object PermissionUtil {
     @JvmStatic
     fun showRationale(context: Context, request: PermissionRequest, message: String?): AlertDialog {
         val activity = context as Activity
-        return AlertDialog.Builder(activity)
+        return AlertDialog.Builder(activity, R.style.PurpleBackgroundLightLettersDialogTheme)
             .setPositiveButton(activity.resources.getString(R.string.action_ok)) { dialog: DialogInterface?, which: Int -> request.proceed() }
             .setNegativeButton(activity.resources.getString(R.string.action_cancel)) { dialog: DialogInterface?, which: Int -> request.cancel() }
             .setCancelable(false)

@@ -125,7 +125,7 @@ class PhotoViewerActivity : BaseLockActivity(),
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        //PhotoViewerActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+        onRequestPermissionsResult(requestCode, grantResults)
     }
 
     @OnPermissionDenied(Manifest.permission.WRITE_EXTERNAL_STORAGE)

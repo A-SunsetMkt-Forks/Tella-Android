@@ -174,8 +174,6 @@ public class CameraActivity extends MetadataActivity implements ICameraPresenter
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             maybeChangeTemporaryTimeout();
         }
-
-
     }
 
     @Override

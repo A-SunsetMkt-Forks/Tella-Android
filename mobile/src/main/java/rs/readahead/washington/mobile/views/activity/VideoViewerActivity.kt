@@ -142,7 +142,7 @@ class VideoViewerActivity : BaseLockActivity(), PlayerControlView.VisibilityList
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        //VideoViewerActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
+        onRequestPermissionsResult(requestCode, grantResults)
     }
 
     @OnPermissionDenied(Manifest.permission.WRITE_EXTERNAL_STORAGE)

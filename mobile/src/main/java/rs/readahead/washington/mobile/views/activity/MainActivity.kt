@@ -45,7 +45,6 @@ import timber.log.Timber
 import java.util.*
 
 @AndroidEntryPoint
-@RuntimePermissions
 class MainActivity : MetadataActivity(), IHomeScreenPresenterContract.IView,
     IMediaImportPresenterContract.IView, IMetadataAttachPresenterContract.IView {
     private var mExit = false
@@ -226,10 +225,6 @@ class MainActivity : MetadataActivity(), IHomeScreenPresenterContract.IView,
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         if (disposables != null) {
@@ -241,7 +236,7 @@ class MainActivity : MetadataActivity(), IHomeScreenPresenterContract.IView,
 
     override fun onResume() {
         super.onResume()
-        binding!!.btmNavMain!!.menu.findItem(R.id.home).isChecked = true
+        binding!!.btmNavMain.menu.findItem(R.id.home).isChecked = true
         homeScreenPresenter!!.countCollectServers()
         homeScreenPresenter!!.countUwaziServers()
         startLocationMetadataListening()
@@ -254,10 +249,6 @@ class MainActivity : MetadataActivity(), IHomeScreenPresenterContract.IView,
         mOrientationEventListener!!.disable()
     }
 
-    override fun onStop() {
-        super.onStop()
-    }
-
     override fun onMetadataAttached(vaultFile: VaultFile) {
         val data = Intent()
         data.putExtra(C.CAPTURED_MEDIA_FILE_ID, vaultFile.id)
@@ -268,10 +259,10 @@ class MainActivity : MetadataActivity(), IHomeScreenPresenterContract.IView,
         // onAddError(throwable);
     }
 
-    @NeedsPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+  /*  @NeedsPermission(Manifest.permission.ACCESS_FINE_LOCATION)
     fun startCollectFormEntryActivity() {
         startActivity(Intent(this, CollectFormEntryActivity::class.java))
-    }
+    }*/
 
     override fun onMediaFileImported(vaultFile: VaultFile) {
         val list: MutableList<String> = ArrayList()
@@ -348,33 +339,33 @@ class MainActivity : MetadataActivity(), IHomeScreenPresenterContract.IView,
     }
 
     fun hideBottomNavigation() {
-        binding!!.btmNavMain!!.visibility = View.GONE
+        binding!!.btmNavMain.visibility = View.GONE
     }
 
     fun showBottomNavigation() {
-        binding!!.btmNavMain!!.visibility = View.VISIBLE
+        binding!!.btmNavMain.visibility = View.VISIBLE
     }
 
     fun selectNavMic() {
-        binding!!.btmNavMain!!.menu.findItem(R.id.mic).isChecked = true
+        binding!!.btmNavMain.menu.findItem(R.id.mic).isChecked = true
     }
 
     fun selectNavForm() {
-        binding!!.btmNavMain!!.menu.findItem(R.id.form).isChecked = true
+        binding!!.btmNavMain.menu.findItem(R.id.form).isChecked = true
     }
 
     private fun maybeShowFormsMenu(num: Long) {
-        binding!!.btmNavMain!!.menu.findItem(R.id.form).isVisible = num > 0
+        binding!!.btmNavMain.menu.findItem(R.id.form).isVisible = num > 0
         invalidateOptionsMenu()
     }
 
     private fun maybeShowUwaziMenu(num: Long) {
-        binding!!.btmNavMain!!.menu.findItem(R.id.uwazi).isVisible = num > 0
+        binding!!.btmNavMain.menu.findItem(R.id.uwazi).isVisible = num > 0
         invalidateOptionsMenu()
     }
 
     fun selectHome() {
-        binding!!.btmNavMain!!.menu.findItem(R.id.home).isChecked = true
+        binding!!.btmNavMain.menu.findItem(R.id.home).isChecked = true
         navController?.navigate(R.id.home)
     }
 
