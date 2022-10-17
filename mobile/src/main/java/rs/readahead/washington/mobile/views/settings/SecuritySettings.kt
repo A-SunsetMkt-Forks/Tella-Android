@@ -113,8 +113,8 @@ class SecuritySettings : BaseFragment() {
 
         val quickExitTellaSwitch = binding?.quickDeleteSwitch
         if (quickExitTellaSwitch != null) {
-            setupQuickExitSwitch(quickExitTellaSwitch.mSwitch, view)
-            setupQuickExitSettingsView(quickExitTellaSwitch.mSwitch, view)
+            setupQuickExitSwitch(quickExitTellaSwitch.mSwitch)
+            setupQuickExitSettingsView(quickExitTellaSwitch.mSwitch)
         }
 
         val silentCameraTellaSwitch = binding?.cameraSilentSwitch
@@ -268,14 +268,14 @@ class SecuritySettings : BaseFragment() {
         activity.finish()
     }
 
-    private fun setupQuickExitSwitch(quickExitSwitch: SwitchCompat, view: View) {
+    private fun setupQuickExitSwitch(quickExitSwitch: SwitchCompat) {
         quickExitSwitch.setOnCheckedChangeListener { buttonView: CompoundButton?, isChecked: Boolean ->
             Preferences.setQuickExit(isChecked)
-            setupQuickExitSettingsView(quickExitSwitch, view)
+            setupQuickExitSettingsView(quickExitSwitch)
         }
     }
 
-    private fun setupQuickExitSettingsView(quickExitSwitch: SwitchCompat, view: View) {
+    private fun setupQuickExitSettingsView(quickExitSwitch: SwitchCompat) {
         if (binding?.quickExitSettingsLayout == null) return
         if (Preferences.isQuickExit()) {
             quickExitSwitch.setChecked(true)
