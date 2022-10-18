@@ -175,8 +175,8 @@ public class UwaziMediaWidget extends UwaziFileBinaryWidget {
             waitingForAData = true;
 
             activity.startActivityForResult(new Intent(getContext(), CameraActivity.class)
-                            .putExtra(CameraActivity.INTENT_MODE, CameraActivity.IntentMode.COLLECT.name())
-                            .putExtra(CameraActivity.CAMERA_MODE, CameraActivity.CameraMode.VIDEO.name()),
+                            .putExtra(CameraActivity.Companion.getINTENT_MODE(), CameraActivity.IntentMode.COLLECT.name())
+                            .putExtra(CameraActivity.Companion.getCAMERA_MODE(), CameraActivity.CameraMode.VIDEO.name()),
                     C.MEDIA_FILE_ID
             );
         } catch (Exception e) {

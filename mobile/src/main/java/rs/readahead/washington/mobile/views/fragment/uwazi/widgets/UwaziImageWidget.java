@@ -163,8 +163,8 @@ public class UwaziImageWidget extends UwaziFileBinaryWidget {
             waitingForAData = true;
 
             activity.startActivityForResult(new Intent(getContext(), CameraActivity.class)
-                            .putExtra(CameraActivity.INTENT_MODE, CameraActivity.IntentMode.COLLECT .name())
-                            .putExtra(CameraActivity.CAMERA_MODE, CameraActivity.CameraMode.PHOTO.name()),
+                            .putExtra(CameraActivity.Companion.getINTENT_MODE(), CameraActivity.IntentMode.COLLECT .name())
+                            .putExtra(CameraActivity.Companion.getCAMERA_MODE(), CameraActivity.CameraMode.PHOTO.name()),
                     C.MEDIA_FILE_ID
             );
         } catch (Exception e) {
