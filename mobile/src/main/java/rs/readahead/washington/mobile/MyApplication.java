@@ -1,6 +1,6 @@
 package rs.readahead.washington.mobile;
 
-import static rs.readahead.washington.mobile.util.ExtensionsKt.createCleanInsightsInstance;
+//import static rs.readahead.washington.mobile.util.ExtensionsKt.createCleanInsightsInstance;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -319,7 +319,7 @@ public class MyApplication extends MultiDexApplication implements IUnlockRegistr
     private void initCleanInsights() {
         if (Preferences.hasAcceptedImprovements()) {
             try {
-                cleanInsights = createCleanInsightsInstance(getApplicationContext(), Preferences.getTimeAcceptedImprovements());
+                //cleanInsights = createCleanInsightsInstance(getApplicationContext(), Preferences.getTimeAcceptedImprovements());
             } catch (Exception e) {
                 e.printStackTrace();
             }

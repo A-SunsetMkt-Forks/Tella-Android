@@ -319,7 +319,6 @@ class PhotoViewerActivity : BaseLockActivity(),
                 override fun share() {
                     maybeChangeTemporaryTimeout {
                         shareMediaFile()
-                        Unit
                     }
                 }
 
@@ -334,7 +333,6 @@ class PhotoViewerActivity : BaseLockActivity(),
                         vaultFile.name
                     ) { name: String? ->
                         presenter!!.renameVaultFile(vaultFile.id, name)
-                        Unit
                     }
                 }
 
